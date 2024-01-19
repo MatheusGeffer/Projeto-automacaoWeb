@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro de Produtos</title>
+    <link rel="stylesheet" type="text/css" href="../css/style2.css">
+    <style>
+        h1 {
+        text-align: center;
+        font-size: 3.6rem;
+        font-weight: 700;
+        line-height: 100%;
+        font-family: "Montserrat", sans-serif;
+        }
+      
+        h2{
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 300;
+        }
+    
+        html {
+            font-size: 62.5%;
+        }
+    
+        table {
+            border-collapse: collapse;
+            overflow: hidden;
+            width: 100%;        
+        }
+    
+        td,
+        th {
+            padding: 1rem;
+            border-bottom: solid 2px white;
+            text-align: center;
+            font-size: 1.8rem;
+            line-height: 1;
+            width: 15%;
+            font-family: "Montserrat", sans-serif;        
+        }
+    
+        th {
+            background-color: #585757;
+        }
+    
+        td {
+            background-color: #f8f8f8;     
+        }
+    
+        tr:last-child td {
+            border-bottom: 0;
+        }
+    
+        form,
+        .form-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 2.4rem;
+        }
+    
+        .form-campo {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    
+        .form-campo label {
+            margin-left: 1.2rem;
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.5rem;
+            text-align: center;       
+        }
+    
+        .form-campo input {
+            border-radius: 50px;
+            padding: 0.6rem 1.2rem;
+            border: solid 2px rgba(0, 0, 0, 0.5);
+            font-size: 1.8rem;
+            margin: auto;
+            min-width: 55%;
+        }
+    
+        .form-botoes {
+            align-self: center;
+        }
+    
+        form button {
+            padding: 1rem 5rem;
+            font-size: 2.3rem;
+            line-height: inherit;
+            border-radius: 50px;
+            color: rgb(8, 8, 8);
+            border: none;
+            background-color: #4caf50;
+            border: 3px solid #696565;
+            
+        }
+    
+        .limpar {
+            background-color: white;
+        }
+    
+    
+        form small {
+            display: none;
+            margin-top: 0.4rem;
+            margin-left: 2rem;
+            color: inherit;
+            font-family: inherit;
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulário de Cadastro de Produtos</h1>
+    <form action="/submit" method="post">
+        <div class="form-inputs">
+            <div class="form-campo">
+                <label for="codigo">Código do Produto</label>
+                <input
+                    type="text"
+                    id="codigo"
+                    name="codigo"
+                    placeholder="Código do produto">
+            
+                <label for="marca">Marca do Produto</label>
+                <input
+                    type="text"
+                    id="marca"
+                    name="marca"
+                    placeholder="Marca do Produto">
+            
+                <label for="tipo">Tipo do Produto</label>
+                <input
+                    type="text"
+                    id="tipo"
+                    name="tipo"
+                    placeholder="Tipo do Produto">
+          
+                <label for="categoria">Categoria do Produto</label>
+                <input
+                    type="text"
+                    id="categoria"
+                    name="categoria"
+                    placeholder="Categoria do Produto">               
+          
+                <label for="preco_unitario">Preço Unitário do Produto</label>
+                <input
+                    type="text"
+                    id="preco_unitario"
+                    name="preco_unitario"
+                    placeholder="Preço Unitário do Produto">
+          
+                <label for="custo">Custo do Produto</label>
+                <input
+                    type="text"
+                    id="custo"
+                    name="custo"
+                    placeholder="Custo do Produto">
+    
+            </div>
+          
+            <div class="form-campo">
+                <label for="obs">OBS</label>
+                <input type="text" id="obs" name="obs" placeholder="Observações" >
+
+                <small></small>
+            </div>
+        </div>
+        
+        <div class="form-botoes">
+            <button type="submit" id="botao">Enviar</button>
+        
+            <button class="limpar" id="botao-limpar">Limpar</button>
+        </div>
+
+    </form>
+
+    <div class="div-tabela">
+        <h2>Produtos Cadastrados</h2>
+        <div class="w-embed">
+            <table class="container-tabela">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Preço Un.</th>
+                        <th>Custo</th>
+                        <th>OBS</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                      <script>
+                        document.addEventListener("DOMContentLoaded", () => {
+                            const form = document.querySelector("form");
+                            const campos = form.querySelectorAll("input:not([type='submit'])");
+                            const botaoLimpar = document.querySelector("#botao-limpar");
+                            const tabelaBody = document.querySelector(".container-tabela tbody");
+                
+                            let listaProdutos = JSON.parse(localStorage.getItem("listaProdutos")) || [];
+                
+                            form.addEventListener("submit", (e) => {
+                                e.preventDefault();
+                
+                                cliqueiBotao();
+                                
+                            });
+                
+                            botaoLimpar.addEventListener("click", limparTabela);
+                
+                            function updateLocalStorage() {
+                                localStorage.setItem("listaProdutos", JSON.stringify(listaProdutos));
+                            }
+                
+                            function limparTabela() {
+                                localStorage.removeItem("listaProdutos");
+                                listaProdutos.length = 0;
+                
+                                tabelaBody.innerHTML = "";
+                                document.querySelector(".div-tabela").classList.remove();
+                            }
+                
+                            function updateUI(objetoDadosFormulario) {
+                                tabelaBody.insertAdjacentHTML(
+                                    "beforeend",
+                                    `<tr>
+                                        <td>${objetoDadosFormulario[0]}</td>
+                                        <td>${objetoDadosFormulario[1]}</td>
+                                        <td>${objetoDadosFormulario[2]}</td>
+                                        <td>${objetoDadosFormulario[3]}</td>
+                                        <td>${objetoDadosFormulario[4]}</td>
+                                        <td>${objetoDadosFormulario[5]}</td>
+                                        <td>${objetoDadosFormulario[6]}</td>
+                                    </tr>`
+                                );
+                
+                            }
+                
+                            function cliqueiBotao() {
+                                const objetoDadosFormulario = Array.from(campos).map((campo) => campo.value.trim());
+                                form.reset();
+                
+                                listaProdutos.push(objetoDadosFormulario);
+                                updateLocalStorage();
+                                updateUI(objetoDadosFormulario);
+                            }
+                
+                            listaProdutos.forEach(updateUI);
+                        });
+                    </script>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
