@@ -1,7 +1,7 @@
 """
 NOME DO PROGRAMA: Projeto de Automação de cadastro de produtos
 
-VERSÃO 1.0
+VERSÃO 1.6
 
 SINTAXE: Educacional
 
@@ -15,17 +15,22 @@ LINGUAGENS FRONTEND: Javascript, HTML & CSS
 
 FRAMEWORKS: Flask
 
-SISTEMAS OPERACIONAIS: Software roda via web logo nao temos nenhuma restrição para OS.
+SISTEMAS OPERACIONAIS: Software rodado e testeado no Windows 11, restrição apenas para o Sistema Operacional macOs, 
+pois seus apareclhos utlizam uma convenção de teclas diferentes, gerando contradição com o comando pyautogui.press e 
+pyautogui.hotkley, caso seja o aplicativo seja usado nessa platorma, tera que ser feiro pequenos ajustes no código main.py
 
-REQUISITOS: Acesso a internet pois o bootstrap utiliza seus repositorio.
+REQUISITOS: Acesso a internet apenas para baixar os arquvos e bibliotecas, logo após pode ser iniciado sem conexão com 
+a internet, pois o flask utiliza seu servidor local para hospedar sua página HTML na web.
 
 AUTOR: Matheus Tomas Geffer
 
 CRIAÇÃO: 15/01/2024
 
-ALTERAÇÕES: 09/05/2023 - Adicionado visual na pagina web
-            10/05/2023 - Correções de bugs
-            16/05/2023 - Testes de QA(Aprovado)
+ALTERAÇÕES: 16/01/2024 - Criando as páginas em HTML
+            18/01/2024 - Adicionando style á página
+            20/01/2024 - Elaborando o script para armzenar as informções em uma tabela na própria página
+            21/01/2024 - Teste de QA, arrumando pequenos detalhes de erro
+            22/01/2024 - Deixando o repositório público
     
             
 TODAS AS BILIOTECAS UTILIZADAS ESTÃO LOCALIZADAS NO ARQUIVO requirements.txt | Para que sejam importadas deve-se utilizar o seguinte comando no terminal "pip install --requirements.txt"
