@@ -18,8 +18,9 @@ O objetivo deste projeto é automatizar o cadastro de produtos em um site espec�
 Os dados a serem cadastrados estão disponíveis no arquivo "produtos.csv". Este arquivo contém informações como código do produto, marca, tipo, preço unitário, custo e observação. A automação visa evitar o trabalho manual.
 
 # Funcionalidades
-Ao executar o programa, as seguintes ações serão realizadas para completar o cadastro:
+Ao executar o programa principal (main.py), as seguintes ações serão realizadas para completar o cadastro:
 
+Abrir outro terminal para executar o programa app.py
 Abrir o navegador
 Acessar o site do sistema com login e senha
 Inserir automaticamente todas as informações do produto

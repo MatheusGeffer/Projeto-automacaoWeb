@@ -5,9 +5,11 @@ VERSÃO 1.6
 
 SINTAXE: Educacional
 
-DESCRIÇÃO: O software tem como objetivo simular o funcionamento da alocação de memoria
-que os sistemas operacionais fazem automaticamente, esse projeto foi pensado para deixar mais claro
-a como os processos sao alocados e redistribuidos na memoria de um computador.
+DESCRIÇÃO: Abordar a automação para simplificar o processo de cadastro de informações em um sistema.
+A automação envolve o controle do mouse e do teclado para realizar tarefas como se fossem executadas manualmente. 
+O Python será a ferramenta principal para realizar essas automações de forma eficiente.
+O foco do projeto é permitir que você entre em um site localizado na pssta templates, realize o login 
+e automatize o cadastro de todos os produtos, evitando assim o trabalho manual e economizando tempo.
 
 LINGUAGENS BACKEND: Python
 
