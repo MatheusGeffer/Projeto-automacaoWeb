@@ -1,7 +1,7 @@
 ## Projeto-automacaoWeb
 
 # Referências
-https://www.youtube.com/results?search_query=hashtag+programa%C3%A7%C3%A3o -> Canal de refe^rencia ao projeto
+https://www.youtube.com/results?search_query=hashtag+programa%C3%A7%C3%A3o -> Canal de referência ao projeto 
 https://dlp.hashtagtreinamentos.com/python/intensivao/login -> Página modelo de login
 https://dlp.hashtagtreinamentos.com/python/intensivao/tabela -> Página modelo de cdastro de produtos
 https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/First_steps/Variables -> Estudo para criar o script do HTML
